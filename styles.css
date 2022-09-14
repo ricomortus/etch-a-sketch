@@ -1,0 +1,70 @@
+.grid-container {
+    display: grid;
+    height: 400px;
+    width: 400px;
+    grid-template-columns: repeat(16 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    border: 2px solid black;
+    margin: 0px;
+}
+
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-13, .col-14, .col-15, .col-16 {
+    height: 21px;
+    width: 21px;
+    border: 2px solid black;
+    margin: 0;
+}
+
+.hovered {
+    background-color: aquamarine;
+}
+/* 
+.col-1-container {
+    grid-column-start: 1;
+}
+.col-2-container {
+    grid-column-start: 2;
+}
+.col-3-container {
+    grid-column-start: 3;
+}
+.col-4-container {
+    grid-column-start: 4;
+}
+.col-5-container {
+    grid-column-start: 5;
+}
+.col-6-container {
+    grid-column-start: 6;
+}
+.col-7-container {
+    grid-column-start: 7;
+}
+.col-8-container {
+    grid-column-start: 8;
+}
+.col-9-container {
+    grid-column-start: 9;
+}
+.col-10-container {
+    grid-column-start: 10;
+}
+.col-11-container {
+    grid-column-start: 11;
+}
+.col-12-container {
+    grid-column-start: 12;
+}
+.col-13-container {
+    grid-column-start: 13;
+}
+.col-14-container {
+    grid-column-start: 14;
+}
+.col-15-container {
+    grid-column-start: 15;
+}
+.col-16-container {
+    grid-column-start: 16;
+} */
