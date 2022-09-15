@@ -5,6 +5,7 @@ let userRow = 16;
 
 setNewGrid();
 
+//Take user input for # squares.
 document.querySelector('#submit').onclick = function () {
     eraseGrid();
     let input = document.querySelector('#userInput').value;
@@ -13,6 +14,10 @@ document.querySelector('#submit').onclick = function () {
     setNewGrid();
 }
 
+document.querySelector('#erase').onclick = function () {
+    eraseGrid();
+    setNewGrid();
+}
 
 function setNewGrid () {
     for (v = 1; v <= userColumn; v++) {
