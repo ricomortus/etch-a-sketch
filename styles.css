@@ -1,7 +1,7 @@
 .grid-container {
     display: grid;
-    height: 400px;
-    width: 400px;
+    height: 640px;
+    width: 640px;
     grid-template-columns: repeat(16 1fr);
     grid-template-rows: repeat(16, 1fr);
     border: 2px solid black;
@@ -10,15 +10,13 @@
 
 
 .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-13, .col-14, .col-15, .col-16 {
-    height: 21px;
-    width: 21px;
-    border: 2px solid black;
+    height: 38px;
+    width: 38px;
+    border: 1px solid black; 
     margin: 0;
+
 }
 
-.hovered {
-    background-color: aquamarine;
-}
 /* 
 .col-1-container {
     grid-column-start: 1;

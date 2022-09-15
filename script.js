@@ -28,6 +28,7 @@ for (v = 1; v <= 16; v++) {
         div.setAttribute("id", `box${i}`);
         tempColContainer.appendChild(div);
 
+        div.addEventListener ('mouseenter', () => {div.style.cssText = 'background-color: grey'})
     }
 }
 
