@@ -1,24 +1,10 @@
-// const col1Container = document.querySelector('.col-1-container');
-// const col2Container = document.querySelector('.col-2-container');
+const gridContainer = document.querySelector('.grid-container');
 
-// // Column 1
-// for (i = 0; i < 16; i++) {
-//     const div = document.createElement('div')
-//     div.setAttribute("class", "col col-1");
-//     div.setAttribute("id", `box ${i}`);
-//     col1Container.appendChild(div);
-// }
-
-// //Column 2
-// for (i = 0; i < 16; i++) {
-//     const div = document.createElement('div')
-//     div.setAttribute("class", "col col-2");
-//     div.setAttribute("id", `box ${i}`);
-//     col2Container.appendChild(div);
-// }
-
-// Column 3
 for (v = 1; v <= 16; v++) {
+    const divContainer = document.createElement('div');
+    divContainer.setAttribute("class", `col-${v}-container`);
+    gridContainer.appendChild(divContainer);
+
     let tempColContainer = document.querySelector(`.col-${v}-container`);
     tempColContainer.style.cssText = `grid-column-start: ${v}`;
     
