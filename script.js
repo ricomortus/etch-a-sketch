@@ -3,20 +3,27 @@ const gridContainer = document.querySelector('.grid-container');
 let userColumn = 16;
 let userRow = 16;
 let gridColor = 'black';
-
-
+let randomColorChoice = false;
 
 setNewGrid();
-
 
 //Take user input for # squares and update grid.
 document.querySelector('#submit').onclick = function () {
     let input = document.querySelector('#userInput').value;
-    if (input <= 100) {
+    if (input <= 100 && randomColorChoice == false) {
+        randomColorChoice = false;
         eraseGrid();
         userColumn = input;
         userRow = input;
         setNewGrid();
+
+    } else if (input <= 100 && randomColorChoice == true) {
+        eraseGrid();
+        userColumn = input;
+        userRow = input;
+        setNewGrid();
+        squaresRandomColor();
+
     } else {
         alert('too big');
     }
@@ -24,25 +31,29 @@ document.querySelector('#submit').onclick = function () {
 
 //Keep current #squares and clear grid.`
 document.querySelector('#erase').onclick = function () {
+    if(randomColorChoice == false) {
+        eraseGrid();
+        setNewGrid();
+    } else if (randomColorChoice == true) {
+        eraseGrid();
+        setNewGrid();
+        squaresRandomColor();
+    } 
+}
+
+//Reset grid + color
+document.querySelector('#reset').onclick = function () {
     eraseGrid();
     setNewGrid();
+    gridColor = 'black';
+    randomColorChoice = false;
+    
 }
 
 //Random colors
 document.querySelector('#random-color').onclick = function () {
-    for (v = 1; v <= userColumn; v ++) {
-        for (i = 1; i <= userRow; i++) {
-            let gridSquare = document.querySelector(`.col-${v}#box${i}`);
-            gridSquare.addEventListener ('mouseenter', () => {
-                gridSquare.style.cssText = 
-                `height: ${(640 / userColumn) - 2}px; 
-                width: ${(640 / userColumn) - 2}px; 
-                border: 1px solid black; 
-                margin: 0; 
-                background-color: ${randomColor()}`
-            })
-        };
-    };
+    randomColorChoice = true;
+    squaresRandomColor();
 }
 
 //Create new grid
@@ -102,4 +113,21 @@ function eraseContainers () {
 function randomColor () {
     var randomColor = Math.floor(Math.random()*16777215).toString(16);
     return '#' + randomColor
+}
+
+//Change all grid squares to random color
+function squaresRandomColor () {
+    for (v = 1; v <= userColumn; v ++) {
+        for (i = 1; i <= userRow; i++) {
+            let gridSquare = document.querySelector(`.col-${v}#box${i}`);
+            gridSquare.addEventListener ('mouseenter', () => {
+                gridSquare.style.cssText = 
+                `height: ${(640 / userColumn) - 2}px; 
+                width: ${(640 / userColumn) - 2}px; 
+                border: 1px solid black; 
+                margin: 0; 
+                background-color: ${randomColor()}`
+            })
+        };
+    };
 }
