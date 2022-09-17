@@ -1,27 +1,54 @@
-@font-face {
-    font-family: 'AvocadoDays';
-    src: url(./fonts/Avocado\ Days\ 400.otf);
-}
+
 body {
-    background-image: linear-gradient(rgb(178, 157, 255), rgb(255, 170, 250));
+    background-color: #Df0054;
     margin: 0;
-    font-family: 'AvocadoDays';
+    font-family: 'Work Sans';
+    height: 100%;
+    color: #FFFFFF;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
 }
 
 .main-container {
     display:flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    margin: 0;
+    height: 100%;
 }
 
 .controls-container {
-    margin-top: 10px;
+    margin: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 18px;
+    
 }
 
+
 .header {
-    font-size: 50px;
+    font-size: 60px;
     margin: 25px;
-    
+    font-weight: 400;
+    font-family: 'Ultra'
+}
+
+span {
+    text-decoration: underline;
+    text-decoration-color: #FFD900;
+}
+
+.squares-input-container, .color-picker-container, .erase-reset-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#userInput {
+    width: 100px;
 }
 
 .color-picker-text {
@@ -35,17 +62,39 @@ body {
 }
 
 button {
-    font-family: 'AvocadoDays';
+    font-family: 'Work Sans';
+    background-color: #FFD900;
+    border: 4px solid #FFD900;
+    border-radius: 5px;
+    font-weight: bold;
 }
+
+#erase, #reset {
+    width: 100px;
+    height: 30px;
+}
+
 .grid-container {
     display: grid;
     height: 600px;
     width: 600px;
     grid-template-columns: repeat(16 1fr);
     grid-template-rows: repeat(16, 1fr);
-    border: 1px solid #bfbfbf;
+    border: 15px solid #FFD900;
+    border-radius: 10px;
     margin: 0px;
     background-color: white;
 }
 
+footer {
+    display: flex;
+    justify-content: center;
+    background: white;
+    color: black;
+    font-style: italic;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 3px;
+    
+}
 

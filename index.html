@@ -4,21 +4,29 @@
         <title>Etch a Sketch!</title>
         <script src="./script.js" defer></script>
         <link rel="stylesheet" href="./styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Ultra|Work+Sans:400,500" rel="stylesheet">
     </head>
     <body>
         <div class="main-container">
-            <p class="header">Etch a Sketch!</p>
+            <p class="header">Etch a <span>Sketch!</span></p>
             <div class="grid-container"></div>
             <div class="controls-container">
-                <label># of squares per side:</label>
-                <input type="text" id="userInput" placeholder="Enter a number here!"><br>
-                <p class="color-picker-text">Choose your color: </p><input type="color" id="color-picker">
-                <button type="button" id="random-color">Rainbow</button><br>
+                <div class="squares-input-container">
+                    <label># of squares per side: </label>
+                    <input type="text" id="userInput" placeholder="    Type here!">
+                </div>
+                <div class="color-picker-container">
+                    <p class="color-picker-text">Choose your color: </p>
+                    <input type="color" id="color-picker">
+                    <button type="button" id="random-color">Rainbow</button><br>
+                </div>
                 <div class="erase-reset-container">
                     <button type="button" id="erase">Clear</button>
                     <button type="button" id="reset">Reset</button>
                 </div>
             </div>
         </div>
+        <footer>Created by ricomortus 2022</footer>
+
     </body>
 </html>

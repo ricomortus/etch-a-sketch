@@ -7,9 +7,7 @@ let randomColorChoice = false;
 
 setNewGrid();
 
-//Take user input for # squares and update grid.
-// document.querySelector('#submit').onclick = function () {
-
+//Implement slider and only take values that are multiples of 5
 document.querySelector('#userInput').addEventListener('input', () => {
     let input = document.querySelector('#userInput').value;
     if (input <= 100 && randomColorChoice == false) {
