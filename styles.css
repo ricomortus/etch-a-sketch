@@ -1,19 +1,51 @@
+@font-face {
+    font-family: 'AvocadoDays';
+    src: url(./fonts/Avocado\ Days\ 400.otf);
+}
+body {
+    background-image: linear-gradient(rgb(178, 157, 255), rgb(255, 170, 250));
+    margin: 0;
+    font-family: 'AvocadoDays';
+}
+
+.main-container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.controls-container {
+    margin-top: 10px;
+}
+
+.header {
+    font-size: 50px;
+    margin: 25px;
+    
+}
+
+.color-picker-text {
+    display: inline;
+}
+
+.erase-reset-container {
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+button {
+    font-family: 'AvocadoDays';
+}
 .grid-container {
     display: grid;
-    height: 640px;
-    width: 640px;
+    height: 600px;
+    width: 600px;
     grid-template-columns: repeat(16 1fr);
     grid-template-rows: repeat(16, 1fr);
     border: 1px solid #bfbfbf;
     margin: 0px;
+    background-color: white;
 }
 
-
-/* .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-13, .col-14, .col-15, .col-16 {
-    height: 38px;
-    width: 38px;
-    border: 1px solid black; 
-    margin: 0;
-
-} */
 

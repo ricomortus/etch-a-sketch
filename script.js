@@ -4,14 +4,15 @@ let userColumn = 16;
 let userRow = 16;
 let gridColor = 'black';
 let randomColorChoice = false;
-let customColorChoice = false;
 
 setNewGrid();
 
 //Take user input for # squares and update grid.
-document.querySelector('#submit').onclick = function () {
+// document.querySelector('#submit').onclick = function () {
+
+document.querySelector('#userInput').addEventListener('input', () => {
     let input = document.querySelector('#userInput').value;
-    if (input <= 100 && randomColorChoice == false && customColorChoice == false) {
+    if (input <= 100 && randomColorChoice == false) {
         randomColorChoice = false;
         eraseGrid();
         userColumn = input;
@@ -24,25 +25,19 @@ document.querySelector('#submit').onclick = function () {
         userRow = input;
         setNewGrid();
         squaresRandomColor();
-    } else if (input <= 100 && customColorChoice == true){
-        eraseGrid();
-        userColumn = input;
-        userRow = input;
-        setNewGrid();
-        customColor();
     } else {
         alert('too big');
     }
-}
+});
 
-//Color picker
+//Custom color
 const head = document.querySelector('#color-picker')
 head.addEventListener('input', () => {
     gridColor = head.value;
     customColor();
 })
 
-//Keep current #squares and clear grid.`
+//Keep current # squares and clear grid.`
 document.querySelector('#erase').onclick = function () {
     if(randomColorChoice == false) {
         eraseGrid();
@@ -56,9 +51,14 @@ document.querySelector('#erase').onclick = function () {
 
 //Reset grid + color
 document.querySelector('#reset').onclick = function () {
+    let input = document.querySelector('#userInput');
+    input.value = '';
+    userColumn = 16;
+    userRow = 16;
+    head.value = '#000000'
+    gridColor = '#000000'
     eraseGrid();
     setNewGrid();
-    gridColor = 'black';
     randomColorChoice = false;
 }
 
@@ -85,15 +85,16 @@ function setNewGrid () {
             tempColContainer.appendChild(div);
             //style individual grid squares 
             div.style.cssText = 
-            `height: ${(640 / userColumn) - 2}px; 
-            width: ${(640 / userColumn) - 2}px; 
+            `height: ${(600 / userColumn) - 2}px; 
+            width: ${(600 / userColumn) - 2}px; 
             border: 1px solid #e6e6e6;
+            background-color: #f7f7f7;
             margin: 0;`;
             //Changes colour when hovered + retain previous CSS
             div.addEventListener ('mouseenter', () => {
                 div.style.cssText = 
-                `height: ${(640 / userColumn) - 2}px; 
-                width: ${(640 / userColumn) -2}px; 
+                `height: ${(600 / userColumn) - 2}px; 
+                width: ${(600 / userColumn) -2}px; 
                 margin: 0; 
                 border: 1px solid #e6e6e6;
                 background-color: ${gridColor}`
@@ -107,7 +108,8 @@ function eraseGrid () {
     eraseGridSquares();
     eraseContainers();
 }
-//Delete the individual div squares
+
+//Delete individual grid squares
 function eraseGridSquares () {
     for (v = 1; v <= userColumn; v++) {
         // Removes columns
@@ -115,7 +117,7 @@ function eraseGridSquares () {
         [...rmContainer.children].forEach(child => rmContainer.removeChild(child));
     }
 }
-//Delete the column containers
+//Delete grid column containers
 function eraseContainers () {
     let prevContainer = document.querySelector(`.grid-container`);
     [...prevContainer.children].forEach(child => prevContainer.removeChild(child));
@@ -134,8 +136,8 @@ function squaresRandomColor () {
             let gridSquare = document.querySelector(`.col-${v}#box${i}`);
             gridSquare.addEventListener ('mouseenter', () => {
                 gridSquare.style.cssText = 
-                `height: ${(640 / userColumn) - 2}px; 
-                width: ${(640 / userColumn) -2 }px; 
+                `height: ${(600 / userColumn) - 2}px; 
+                width: ${(600 / userColumn) -2 }px; 
                 margin: 0; 
                 border: 1px solid #e6e6e6;
                 background-color: ${randomColor()}`
@@ -144,15 +146,15 @@ function squaresRandomColor () {
     };
 }
 
-//Change all grid squares to random color
+//Change all grid squares to custom color
 function customColor () {
     for (v = 1; v <= userColumn; v ++) {
         for (i = 1; i <= userRow; i++) {
             let gridSquare = document.querySelector(`.col-${v}#box${i}`);
             gridSquare.addEventListener ('mouseenter', () => {
                 gridSquare.style.cssText = 
-                `height: ${(640 / userColumn) - 2}px; 
-                width: ${(640 / userColumn) -2 }px; 
+                `height: ${(600 / userColumn) - 2}px; 
+                width: ${(600 / userColumn) -2 }px; 
                 margin: 0; 
                 border: 1px solid #e6e6e6;
                 background-color: ${gridColor}`

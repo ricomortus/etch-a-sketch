@@ -6,18 +6,19 @@
         <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
-        <label># of squares per side:</label>
-        <input type="text" id="userInput">
-        <button type="button" id="submit">Submit</button>
-        <!-- CHeck for updating grid without submit button or change to slider -->
-
-        <input type="color" id="color-picker">
-        <!-- May need button to change color -->
-
-        <button type="button" id="random-color">Random Color!</button>
-        <button type="button" id="erase">Erase</button>
-        <button type="button" id="reset">Reset</button>
-        <div class="grid-container">
+        <div class="main-container">
+            <p class="header">Etch a Sketch!</p>
+            <div class="grid-container"></div>
+            <div class="controls-container">
+                <label># of squares per side:</label>
+                <input type="text" id="userInput" placeholder="Enter a number here!"><br>
+                <p class="color-picker-text">Choose your color: </p><input type="color" id="color-picker">
+                <button type="button" id="random-color">Rainbow</button><br>
+                <div class="erase-reset-container">
+                    <button type="button" id="erase">Clear</button>
+                    <button type="button" id="reset">Reset</button>
+                </div>
+            </div>
         </div>
     </body>
 </html>
