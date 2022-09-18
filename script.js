@@ -7,7 +7,7 @@ let randomColorChoice = false;
 
 setNewGrid();
 
-//Implement slider and only take values that are multiples of 5
+//Take user input for # of squares per side and set new grid. Will also take previous colour choice or rainbow color depending on previous selection.
 document.querySelector('#userInput').addEventListener('input', () => {
     let input = document.querySelector('#userInput').value;
     if (input <= 100 && randomColorChoice == false) {
@@ -28,14 +28,14 @@ document.querySelector('#userInput').addEventListener('input', () => {
     }
 });
 
-//Custom color
+//Pick custom color
 const head = document.querySelector('#color-picker')
 head.addEventListener('input', () => {
     gridColor = head.value;
     customColor();
 })
 
-//Keep current # squares and clear grid.`
+//Keep current # squares and clear grid + style button when clicked
 const clearButton = document.querySelector('#erase');
 clearButton.addEventListener('mousedown', () => {
     clearButton.style.cssText = 'background-color: #ffa200; border: 4px solid #ffa200';
@@ -48,11 +48,10 @@ clearButton.addEventListener('mousedown', () => {
         squaresRandomColor();
     } 
 });
-
+//styles clear button when click is finished
 clearButton.addEventListener('mouseup', () => {
     clearButton.style.cssText = 'background-color: #FFD900';
 });
-
 
 //Reset grid + color
 const resetButton = document.querySelector('#reset')
@@ -68,28 +67,27 @@ resetButton.addEventListener('mousedown', () => {
     randomColorChoice = false;
     resetButton.style.cssText = 'background-color: #ffa200; border: 4px solid #ffa200';
 });
-
 resetButton.addEventListener('mouseup', () => {
     resetButton.style.cssText = 'background-color: #FFD900';
 });
- 
 
 
-//Random colors
+//Random colors button 
 const randomColorButton = document.querySelector('#random-color');
 randomColorButton.addEventListener('mousedown', () => {
     randomColorChoice = true;
     squaresRandomColor();
     randomColorButton.style.cssText = 'background-color: #ffa200; border: 4px solid #ffa200';
 });
-
 randomColorButton.addEventListener('mouseup', () => {
     randomColorButton.style.cssText = 'background-color: #FFD900';
 });
 
 
 
-//Create new grid
+
+//FUNCTIONS
+//Create new grid and styles grid + add 'mouseenter' event listener.
 function setNewGrid () {
     for (v = 1; v <= userColumn; v++) {
         // Creates columns

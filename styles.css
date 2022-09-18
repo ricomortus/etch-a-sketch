@@ -19,14 +19,6 @@ body {
     height: 100%;
 }
 
-.controls-container {
-    margin: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-size: 18px;
-}
-
 .header {
     font-size: 60px;
     margin: 25px;
@@ -37,6 +29,26 @@ body {
 span {
     text-decoration: underline;
     text-decoration-color: #FFD900;
+}
+
+.grid-container {
+    display: grid;
+    height: 600px;
+    width: 600px;
+    grid-template-columns: repeat(16 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    border: 15px solid #FFD900;
+    border-radius: 10px;
+    margin: 0px;
+    background-color: white;
+}
+
+.controls-container {
+    margin: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 18px;
 }
 
 .squares-input-container, .color-picker-container, .erase-reset-container {
@@ -72,18 +84,6 @@ button {
     height: 30px;
 }
 
-.grid-container {
-    display: grid;
-    height: 600px;
-    width: 600px;
-    grid-template-columns: repeat(16 1fr);
-    grid-template-rows: repeat(16, 1fr);
-    border: 15px solid #FFD900;
-    border-radius: 10px;
-    margin: 0px;
-    background-color: white;
-}
-
 footer {
     display: flex;
     justify-content: center;
@@ -93,6 +93,5 @@ footer {
     font-size: 15px;
     font-weight: 500;
     padding: 3px;
-    
 }
 
