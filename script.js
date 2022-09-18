@@ -36,7 +36,9 @@ head.addEventListener('input', () => {
 })
 
 //Keep current # squares and clear grid.`
-document.querySelector('#erase').onclick = function () {
+const clearButton = document.querySelector('#erase');
+clearButton.addEventListener('mousedown', () => {
+    clearButton.style.cssText = 'background-color: #ffa200; border: 4px solid #ffa200';
     if(randomColorChoice == false) {
         eraseGrid();
         setNewGrid();
@@ -45,10 +47,16 @@ document.querySelector('#erase').onclick = function () {
         setNewGrid();
         squaresRandomColor();
     } 
-}
+});
+
+clearButton.addEventListener('mouseup', () => {
+    clearButton.style.cssText = 'background-color: #FFD900';
+});
+
 
 //Reset grid + color
-document.querySelector('#reset').onclick = function () {
+const resetButton = document.querySelector('#reset')
+resetButton.addEventListener('mousedown', () => {
     let input = document.querySelector('#userInput');
     input.value = '';
     userColumn = 16;
@@ -58,13 +66,28 @@ document.querySelector('#reset').onclick = function () {
     eraseGrid();
     setNewGrid();
     randomColorChoice = false;
-}
+    resetButton.style.cssText = 'background-color: #ffa200; border: 4px solid #ffa200';
+});
+
+resetButton.addEventListener('mouseup', () => {
+    resetButton.style.cssText = 'background-color: #FFD900';
+});
+ 
+
 
 //Random colors
-document.querySelector('#random-color').onclick = function () {
+const randomColorButton = document.querySelector('#random-color');
+randomColorButton.addEventListener('mousedown', () => {
     randomColorChoice = true;
     squaresRandomColor();
-}
+    randomColorButton.style.cssText = 'background-color: #ffa200; border: 4px solid #ffa200';
+});
+
+randomColorButton.addEventListener('mouseup', () => {
+    randomColorButton.style.cssText = 'background-color: #FFD900';
+});
+
+
 
 //Create new grid
 function setNewGrid () {
